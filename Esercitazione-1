@@ -1,0 +1,26 @@
+# Esercitazione comandi man, cat, grep, sort.
+
+# Utilizzare cat per creare un file di nome lyrics che contiene la canzone del non compleanno di Alice nel Paese delle meraviglie.
+
+cat > lyrics.txt
+Statistics prove, prove that you've one birthday,
+one birthday ev'ry year.
+But there are three hundred and sixty four
+unbirthdays.
+That is why we're gathered here to cheer.
+A very merry unbirthday to you, to you.
+A very merry unbirthday to you,
+It's great to drink to someone and I guess that you will do.
+A very merry unbirthday to you
+
+# con grep e sort selezionare tutte le linee che contengono esattamente la parola one (non come sottostringa di una parola data), ordinarle lessicograficamente e farle sampare sullo standard output.
+
+cat lyrics.txt | grep -wn one | sort -g
+
+# poi sempre con grep stampare tutte le linee che non contengono la parola merry in ordine lessicografico case-unsensitive.
+
+cat lyrics.txt | grep -v merry | sort -f
+
+Trasformare il file lyrics dell'esercizio precedente nel file LYRICS in cui tutte le lettere minuscole sono state trasformate in lettere maiuscole.
+
+mv lyrics.txt LYRICS.txt
