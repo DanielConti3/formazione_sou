@@ -18,8 +18,8 @@ vi .bashrc
 
 # Aggiungo una sezione VARIABILI se non già presente dove inserirò la nuova variabile.
 
-cibo=panino
+export CIBO="panino"
 
 # Uso il comando di seguito per confermare che la nuova variable sia stata creata.
 
-echo cibo
+echo CIBO
