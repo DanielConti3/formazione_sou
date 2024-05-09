@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# Utilizzo il seguente comando per listare le variabili d'ambiente sulla shell.
+
+env
+
+# Utilizzo il seguente comando per modificare la variabile PATH ed aggiungere un nuovo percorso.
+
+export PATH=$PATH:/nuova/path/da/aggiungere/
+
+# Rimuovo il nuovo path ridefinendo la variabile PATH con quella precedente.
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+# Aggiungo sul bashrc una nuova variabile per renderla permanente.
+
+vi .bashrc
+
+# Aggiungo una sezione VARIABILI se non già presente dove inserirò la nuova variabile.
+
+cibo=panino
+
+# Uso il comando di seguito per confermare che la nuova variable sia stata creata.
+
+echo cibo
