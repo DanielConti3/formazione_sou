@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#creo un array di attività che assegno ad una variabile per far si che vengano scelte randomicamente.
+activity=("D&D 5e" "D&D Pathfinder" "Monopoly" "Cluedo" "Poker" "Briscola" "Scopa")
+array_length=${#activity[@]}
+index=$(($RANDOM % $array_length))
+i=7 #creo un contatore per interrompere lo script.
+
+#creo un ciclo while che continua a proporre giochi diversi fintanto che la sua condizione risulti vera.
+while [[ $i -gt 0 ]]; do
+    echo "Ti va di giocare a ${activity[$index]}?"
+    read -p "Inserisci "si" per giocare o "no" per saltare: " answer
+#creo un ciclo if/elif così che in base all'input dell'utente lo script deciderà se continuare o interrompersi.
+    if [[ $answer == "si" ]]; then
+        echo "Ottimo! Iniziamo a giocare a ${activity[$index]}."
+        break
+    elif [[ $answer == "no" ]]; then
+        echo "Ok, proviamo un altro gioco."
+        new_activity=() #ogni volta che un'attività viene scartata viene creata un nuovo array che esclude l'opzione scelta precedentemente.
+        j=0
+        for ((j=0; j<${array_length}; j++)); do
+            if [[ $j -ne $index ]]; then
+                new_activity+=("${activity[$j]}")
+            fi
+        done
+
+        if [[ ${#new_activity[@]} -eq 0 ]]; then
+            echo "Mi dispiace, non ho più giochi da proporre."
+            break
+        fi
+
+        activity=("${new_activity[@]}")
+        array_length=${#activity[@]}
+        index=$(($RANDOM % $array_length))
+        ((i--))
+    fi
+done
