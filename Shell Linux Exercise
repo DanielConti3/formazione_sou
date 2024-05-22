@@ -1,0 +1,27 @@
+# Some exercises on shell linux, after the question it follows the solution of it.
+# As a personal challenge I tried to use a single line to complete the exercises.
+
+
+Determine the number of files in the directory /bin which start with the letter "c".
+
+ls /bin | grep ^c | wc -l
+
+Create a file containing the names of the first 7 files inside the directory /etc.
+
+ls /etc/ | head -7 > exercise
+
+Determine the number of files of the current directory inside which name appears the line "string".
+
+ls exercise | grep string | wc -l
+
+Create a file containing a list with the name of 10 commands of /bin following the order of the last access.
+
+ls -l /bin | head -10 > command-list
+
+Create a file containing the name of the first 7 files and the last 6 files (in alphabetical order) of the directory /etc.
+
+ls -lv /etc/ | grep ^- | head -7 > esercizio && ls -lv /etc/ | grep ^- | tail -6 >> esercizio
+
+Create a file containing a list with the names of 8 files in /usr/sbin put in order after the moment of the last update.
+
+ls -lt /usr/bin/ | grep ^- | head -8
