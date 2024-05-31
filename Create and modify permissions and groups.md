@@ -9,7 +9,7 @@ ls -l foo.log
 -rw-r--r--. 1 [username] [username] [data e ora] foo.log
 ```
 Before seeing the permissions of this file, let me explain what the output of the `ls -l` command has shown us. The [-] shows that this foo.log is a file, while if instead of `-` it showed `d` it would have been a directory. Afterwards we find three groups made or three values.
-The first group being 'User', the second group being 'Group' and the last group being 'Other'. Each of these groups have the r,w and x permissions also called with their abbreviations `ugo`.
+The first group being 'User', the second group being 'Group' and the last group being 'Other'. Each of these groups, also called with their abbreviations `'u''g''o'`, have the r,w and x permissions.
 ```
 r => read
 w => write
