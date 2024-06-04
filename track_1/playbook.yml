@@ -1,0 +1,54 @@
+# Set host inside the playbook
+- name: Host connection
+  hosts: nodes
+  remote_user: vagrant
+  become: yes
+  tasks:
+
+  - name: Install dnf-plugins-core
+    dnf:
+      name:
+        - dnf-plugins-core
+        - python3-requests
+      state: present
+
+  # Set up the Docker repository
+  - name: Set up docker repository
+    shell: |
+      dnf install -y yum-utils
+      yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+  # Install docker
+  - name: Install package
+    dnf:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      state: latest
+      update_cache: true
+
+  # Start Docker
+  - name: Start and enable Docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  # Pull Docker image
+  - name: Pull Docker image
+    docker_image:
+      name: jenkins/jenkins:lts-jdk17
+      source: pull
+      state: present
+
+  # Start container
+  - name: Start container
+    docker_container:
+      name: Jenkins
+      image: jenkins/jenkins:lts-jdk17
+      ports:
+        - "8080:8080"
+        - "50000:50000"
+      state: started
+

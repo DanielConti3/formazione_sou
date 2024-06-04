@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| 
+
+  config.vm.define "node" do |node|
+    node.vm.box = "rockylinux/9"
+    node.vm.hostname = "node"
+    node.vm.network "private_network", ip: "192.168.10.10", netmask: "255.255.255.0"
+    node.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbook.yml"
+      ansible.inventory_path = "inventory"
+      ansible.config_file = "ansible.cfg"
+      ansible.compatibility_mode = "2.0"
+      ansible.become = true
+    end
+  end
+end

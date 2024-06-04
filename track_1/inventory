@@ -1,0 +1,5 @@
+[nodes]
+node ansible_host=192.168.10.10 ansible_user=vagrant ansible_private_key_file=.vagrant/machines/node1/virtualbox/private_key ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+
+[nodes:vars]
+ansible_password=vagrant
