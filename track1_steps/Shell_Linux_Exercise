@@ -24,4 +24,4 @@ ls -lv /etc/ | grep ^- | head -7 > esercizio && ls -lv /etc/ | grep ^- | tail -6
 
 Create a file containing a list with the names of 8 files in /usr/sbin put in order after the moment of the last update.
 
-ls -lt /usr/bin/ | grep ^- | head -8
+ls -Ft /usr/sbin | grep "*/*" | head -8 | sed "s/*//g" > txt.txt 
