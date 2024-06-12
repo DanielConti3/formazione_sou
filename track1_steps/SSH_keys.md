@@ -13,8 +13,6 @@ Your identification has been saved in $HOME/.ssh/id_rsa.
 Your public key has been saved in $HOME/.ssh/id_rsa.pub.
 The key fingerprint is:
 SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-The key's randomart image is:
-+---[RSA 2048]----+
 ```
 After the keys are generated, you will need to establish the actual connection, using the command `ssh-copy-id` with the option -i, so that you will copy the key inside the identified file.
 ```
